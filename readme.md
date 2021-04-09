@@ -1,6 +1,6 @@
 # STFN API
 
-Api/Rest points for data used by applications on stun.
+Api/Rest points for data used by applications on stfn.uk
 
 ## Setup
 To run the application, ensure a MySQL Server is setup with the correct tables. Then run the following Maven Commands:
