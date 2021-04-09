@@ -2,6 +2,8 @@ package com.steph.api.data;
 
 import com.steph.api.entity.ReferenceEntity;
 
+import java.util.List;
+
 public interface ReferenceDao {
 
     ReferenceEntity getEntityByIdentifier(String uuid);
@@ -11,5 +13,7 @@ public interface ReferenceDao {
     void save(ReferenceEntity entity);
 
     void delete(ReferenceEntity entity);
+
+    List<ReferenceEntity> getAllTypes();
 
 }
