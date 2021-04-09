@@ -22,11 +22,9 @@ public class ReferenceController {
 
     @RequestMapping(value = "/request/reference/{name}", method = RequestMethod.GET)
     public ResponseEntity<String> request(@PathVariable("name") String name) throws JsonProcessingException {
-        ResponseEntity<String> responseEntity = new ResponseEntity<>(null, new HttpHeaders(), HttpStatus.NOT_FOUND);
         JsonUtil<ReferenceEntity> jsonUtil = new JsonUtil<>();
         ReferenceEntity entity = referenceDao.getEntityByName(name);
-        responseEntity = new ResponseEntity<>(jsonUtil.jsonConverter(entity), new HttpHeaders(), HttpStatus.OK);
-        return responseEntity;
+        return new ResponseEntity<>(jsonUtil.jsonConverter(entity), new HttpHeaders(), HttpStatus.OK);
     }
 
 }
