@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.Query;
+import java.util.List;
 
 @Component
 public class ReferenceDaoImpl implements ReferenceDao {
@@ -48,6 +49,15 @@ public class ReferenceDaoImpl implements ReferenceDao {
             session.close();
         }
         return entity;
+    }
+
+    @SuppressWarnings("unchecked")
+    @Override
+    public List<ReferenceEntity> getAllTypes() {
+        Session session = sessionFactory.openSession();
+        List<ReferenceEntity> result = session.createQuery("FROM ReferenceEntity").list();
+        session.close();
+        return result;
     }
 
     @Override

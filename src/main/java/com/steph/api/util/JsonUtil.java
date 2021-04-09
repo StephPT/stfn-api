@@ -7,13 +7,13 @@ import java.io.IOException;
 
 public class JsonUtil<T> {
 
+    private static final ObjectMapper mapper = new ObjectMapper();
+
     public String jsonConverter(Object object) throws JsonProcessingException {
-        ObjectMapper mapper = new ObjectMapper();
         return mapper.writeValueAsString((T) object);
     }
 
     public T objectConverter(String json, Class<?> clazz) throws IOException {
-        ObjectMapper mapper = new ObjectMapper();
         return (T) mapper.readValue(json, clazz);
     }
 
