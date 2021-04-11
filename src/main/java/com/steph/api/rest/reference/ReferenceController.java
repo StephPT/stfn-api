@@ -16,36 +16,39 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-@RequestMapping
 public class ReferenceController {
 
     @Autowired
     ReferenceDao referenceDao;
 
-    @RequestMapping(value = "/request/reference/{name}", method = RequestMethod.GET)
-    public ResponseEntity<String> request(@PathVariable("name") String name) throws JsonProcessingException {
+    @Autowired
+    JsonUtil<ReferenceOptions> jsonOptions;
+
+    @Autowired
+    JsonUtil<ReferenceEntity> jsonEntity;
+
+    @RequestMapping(value = "/request/reference/{uuid}", method = RequestMethod.GET)
+    public ResponseEntity<String> request(@PathVariable("uuid") String uuid) throws JsonProcessingException {
         ResponseEntity<String> responseEntity;
-        JsonUtil<ReferenceEntity> jsonUtil = new JsonUtil<>();
-        ReferenceEntity entity = referenceDao.getEntityByName(name);
+        ReferenceEntity entity = referenceDao.getEntityByIdentifier(uuid);
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
         if(entity == null) {
             responseEntity = new ResponseEntity<>(null, headers, HttpStatus.NOT_FOUND);
         } else {
-            responseEntity = new ResponseEntity<>(jsonUtil.jsonConverter(entity), headers, HttpStatus.OK);
+            responseEntity = new ResponseEntity<>(jsonEntity.jsonConverter(entity), headers, HttpStatus.OK);
         }
         return responseEntity;
     }
 
-    @RequestMapping(value = "/request/reference")
+    @RequestMapping(value = "/request/reference", method = RequestMethod.GET)
     public ResponseEntity<String> requestAllOptions() throws JsonProcessingException {
         ReferenceOptions options = new ReferenceOptions();
         referenceDao.getAllTypes().forEach(m -> {
             options.setOptions(m.getUuid(), m.getName());
         });
-        JsonUtil<ReferenceOptions> jsonUtil = new JsonUtil<>();
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
-        return new ResponseEntity<>(jsonUtil.jsonConverter(options), headers, HttpStatus.OK);
+        return new ResponseEntity<>(jsonOptions.jsonConverter(options), headers, HttpStatus.OK);
     }
 }

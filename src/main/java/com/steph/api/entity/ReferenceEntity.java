@@ -15,7 +15,6 @@ public class ReferenceEntity {
     private String name;
 
     private String format;
-    private String id;
 
     public void setUuid(String uuid) {
         this.uuid = uuid;

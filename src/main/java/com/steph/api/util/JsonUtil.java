@@ -2,9 +2,11 @@ package com.steph.api.util;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 
+@Component
 public class JsonUtil<T> {
 
     private static final ObjectMapper mapper = new ObjectMapper();
