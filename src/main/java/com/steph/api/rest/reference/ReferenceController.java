@@ -3,6 +3,7 @@ package com.steph.api.rest.reference;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.steph.api.data.ReferenceDao;
 import com.steph.api.entity.ReferenceEntity;
+import com.steph.api.entity.ReferenceJson;
 import com.steph.api.entity.ReferenceOptions;
 import com.steph.api.util.JsonUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,11 +12,13 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
+@CrossOrigin
 public class ReferenceController {
 
     @Autowired
@@ -25,14 +28,15 @@ public class ReferenceController {
     JsonUtil<ReferenceOptions> jsonOptions;
 
     @Autowired
-    JsonUtil<ReferenceEntity> jsonEntity;
+    JsonUtil<ReferenceJson> jsonEntity;
 
     @RequestMapping(value = "/request/reference/{uuid}", method = RequestMethod.GET)
     public ResponseEntity<String> request(@PathVariable("uuid") String uuid) throws JsonProcessingException {
         ResponseEntity<String> responseEntity;
-        ReferenceEntity entity = referenceDao.getEntityByIdentifier(uuid);
+        ReferenceJson entity = referenceDao.getEntityByIdentifier(uuid);
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
+        headers.setAccessControlAllowOrigin(HttpHeaders.ACCESS_CONTROL_ALLOW_ORIGIN);
         if(entity == null) {
             responseEntity = new ResponseEntity<>(null, headers, HttpStatus.NOT_FOUND);
         } else {
@@ -49,6 +53,7 @@ public class ReferenceController {
         });
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
+        headers.setAccessControlAllowOrigin(HttpHeaders.ACCESS_CONTROL_ALLOW_ORIGIN);
         return new ResponseEntity<>(jsonOptions.jsonConverter(options), headers, HttpStatus.OK);
     }
 }
