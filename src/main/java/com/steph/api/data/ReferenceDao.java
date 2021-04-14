@@ -1,12 +1,13 @@
 package com.steph.api.data;
 
 import com.steph.api.entity.ReferenceEntity;
+import com.steph.api.entity.ReferenceJson;
 
 import java.util.List;
 
 public interface ReferenceDao {
 
-    ReferenceEntity getEntityByIdentifier(String uuid);
+    ReferenceJson getEntityByIdentifier(String uuid);
 
     ReferenceEntity getEntityByName(String name);
 

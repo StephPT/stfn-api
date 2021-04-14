@@ -1,10 +1,9 @@
 package com.steph.api.entity;
 
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity(name = "ReferenceEntity")
 @Table(name = "uswReference")
@@ -48,4 +47,6 @@ public class ReferenceEntity {
     public String toString() {
         return name + " " + format;
     }
+
+
 }
