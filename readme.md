@@ -18,4 +18,7 @@ mvn spring-boot:run
 
 These are some of the current applications that are served by this repository:
 
-USW Referencing Service: http://stfn.uk/usw/referencing (Front-end Repository: https://github.com/OliverLegg/UswReferencerUI)
+| Name | Url | Repository Url |
+| :---: | :---: | :---: |
+| USW Referencing Service | http://stfn.uk/usw/referencing | https://github.com/OliverLegg/UswReferencerUI |
+
