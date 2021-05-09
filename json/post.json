@@ -1,0 +1,43 @@
+{
+  "name": "Web pages with no authors ",
+  "fields": [
+    {
+      "label": "Title of Internet site (in italics)",
+      "type": "text",
+      "placeholder": "Online Abertillery",
+      "prefix": "",
+      "suffix": "  ",
+      "italic": true,
+      "required": true
+    },
+    {
+      "label": "Year that the site was published/last updated (in round brackets)",
+      "type": "number",
+      "placeholder": "2020",
+      "prefix": "(",
+      "suffix": ") ",
+      "italic": false,
+      "required": true
+    },
+    {
+      "label": "Available at: URL",
+      "type": "url",
+      "placeholder": "https://google.com",
+      "prefix": "Available at: ",
+      "suffix": " ",
+      "italic": false,
+      "required": true
+    },
+    {
+      "label": "(Accessed: date)",
+      "type": "date",
+      "placeholder": "(Accessed: 19 July 2010).",
+      "prefix": "(",
+      "suffix": ").",
+      "italic": false,
+      "required": true,
+      "dateFormat": "ddMMMMyyyy"
+    }
+  ],
+  "example": "<em>Online Abertillery</em> (2010) Available at: http://www.abertillery.net/tales_ghost.html (Accessed: 19 July 2010)."
+}
