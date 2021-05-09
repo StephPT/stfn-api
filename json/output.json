@@ -1,0 +1,46 @@
+{
+  "uuid": "7f6a2f12-9a2a-11eb-aa2f-cd03a6361dee",
+  "name": "Book Reference",
+  "fields": [
+    {
+      "uuid": "7f6a2f12-9a2a-11eb-aa2f-cd03a6361dee",
+      "options": {
+        "name": "Volume",
+        "label": "Volume Number",
+        "type": "number",
+        "placeholder": "Test",
+        "prefix": "",
+        "suffix": " ",
+        "italic": "1",
+        "required": true
+      }
+    },
+    {
+      "uuid": "7f6a2f12-9a2a-11eb-aa2f-cd03a6361dee",
+      "options": {
+        "name": "Url",
+        "label": "Available At",
+        "type": "text",
+        "placeholder": "Test",
+        "prefix": "",
+        "suffix": " ",
+        "italic": "1",
+        "required": true
+      }
+    },
+    {
+      "uuid": "7f6a2f12-9a2a-11eb-aa2f-cd03a6361dee",
+      "options": {
+        "name": "Issue",
+        "label": "Issue Number",
+        "type": "number",
+        "placeholder": "Test",
+        "prefix": "",
+        "suffix": " ",
+        "italic": "1",
+        "required": false
+      }
+    }
+  ],
+  "example": "Example 2"
+}
