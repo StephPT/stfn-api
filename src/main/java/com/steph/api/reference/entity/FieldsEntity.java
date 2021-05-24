@@ -25,7 +25,7 @@ public class FieldsEntity implements Serializable {
 
     private String suffix;
 
-    private String italic;
+    private Boolean italic;
 
     public Boolean required;
 
@@ -45,7 +45,7 @@ public class FieldsEntity implements Serializable {
         this.type = type;
     }
 
-    public void setItalic(String italic) {
+    public void setItalic(Boolean italic) {
         this.italic = italic;
     }
 
@@ -77,7 +77,7 @@ public class FieldsEntity implements Serializable {
         return type;
     }
 
-    public String getItalic() {
+    public Boolean getItalic() {
         return italic;
     }
 
