@@ -31,9 +31,6 @@ public class ReferenceController implements BasicRestController<ReferenceEntity>
         if(entity.uuid == null || entity.uuid.isEmpty()) {
             String uuid = UUID.randomUUID().toString();
             entity.setUuid(uuid);
-            entity.fields.forEach(f -> {
-                f.setUuid(uuid);
-            });
         }
         return referenceRepository.saveAndFlush(entity);
     }
