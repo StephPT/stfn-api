@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 @RestController
@@ -18,14 +19,18 @@ public class FieldsController implements BasicRestController<FieldsEntity> {
     private FieldsRepository fieldsRepository;
 
     @Override
-    @RequestMapping(value = "/request/fields/{name}", method = RequestMethod.GET)
-    public FieldsEntity get(@PathVariable("name") String name) {
-        return fieldsRepository.getOne(name);
+    @RequestMapping(value = "/request/fields/{uuid}", method = RequestMethod.GET)
+    public FieldsEntity get(@PathVariable("uuid") String uuid) {
+        return fieldsRepository.getOne(uuid);
     }
 
     @Override
     @RequestMapping(value = "/request/fields/save", method = RequestMethod.POST)
     public FieldsEntity save(FieldsEntity entity) {
+        if(entity.getUuid() == null || entity.getUuid().isEmpty()) {
+            String uuid = UUID.randomUUID().toString();
+            entity.setUuid(uuid);
+        }
         return fieldsRepository.saveAndFlush(entity);
     }
 
@@ -38,6 +43,6 @@ public class FieldsController implements BasicRestController<FieldsEntity> {
     @Override
     @RequestMapping(value = "/request/fields", method = RequestMethod.GET)
     public Map<String, String> getOptions() {
-        return fieldsRepository.findAll().stream().collect(Collectors.toMap(FieldsEntity::getName, FieldsEntity::getLabel));
+        return fieldsRepository.findAll().stream().collect(Collectors.toMap(FieldsEntity::getUuid, FieldsEntity::getLabel));
     }
 }
