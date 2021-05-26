@@ -1,11 +1,11 @@
 package com.steph.api.reference.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.io.Serializable;
-import java.util.Set;
 
 @Entity(name = "FieldsEntity")
 @Table(name = "fields")
@@ -13,7 +13,6 @@ import java.util.Set;
 public class FieldsEntity implements Serializable {
 
     @Id
-    @Column(name = "uuid")
     private String uuid;
 
     public String label;
@@ -29,10 +28,6 @@ public class FieldsEntity implements Serializable {
     private Boolean italic;
 
     public Boolean required;
-
-    @ManyToMany()
-    @JsonIgnore
-    private Set<ReferenceEntity> references;
 
     public void setUuid(String uuid) {
         this.uuid = uuid;
@@ -66,10 +61,6 @@ public class FieldsEntity implements Serializable {
         this.suffix = suffix;
     }
 
-    public Set<ReferenceEntity> getReferences() {
-        return references;
-    }
-
     public String getUuid() {
         return uuid;
     }
@@ -100,9 +91,5 @@ public class FieldsEntity implements Serializable {
 
     public String getSuffix() {
         return suffix;
-    }
-
-    public void setReferences(Set<ReferenceEntity> references) {
-        this.references = references;
     }
 }
