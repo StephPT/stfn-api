@@ -41,7 +41,7 @@ public class ReferenceController implements BasicRestController<ReferenceEntity>
     @RequestMapping(value = "/request/reference/update", method = RequestMethod.PUT)
     public ReferenceEntity update(@RequestBody final ReferenceEntity reference) {
         ReferenceEntity currentReference = referenceRepository.getOne(reference.getUuid());
-        BeanUtils.copyProperties(reference, currentReference, "uuid", "");
+        BeanUtils.copyProperties(reference, currentReference, "uuid");
         return referenceRepository.saveAndFlush(currentReference);
     }
 

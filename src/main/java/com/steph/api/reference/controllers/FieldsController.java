@@ -3,6 +3,8 @@ package com.steph.api.reference.controllers;
 import com.steph.api.controller.BasicRestController;
 import com.steph.api.reference.data.FieldsRepository;
 import com.steph.api.reference.entity.FieldsEntity;
+import com.steph.api.reference.entity.ReferenceEntity;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -31,6 +33,13 @@ public class FieldsController implements BasicRestController<FieldsEntity> {
             entity.setUuid(uuid);
         }
         return fieldsRepository.saveAndFlush(entity);
+    }
+
+    @RequestMapping(value = "/request/fields/update", method = RequestMethod.PUT)
+    public FieldsEntity update(@RequestBody final FieldsEntity field) {
+        FieldsEntity currentField = fieldsRepository.getOne(field.getUuid());
+        BeanUtils.copyProperties(field, currentField, "uuid");
+        return fieldsRepository.saveAndFlush(currentField);
     }
 
     @Override
