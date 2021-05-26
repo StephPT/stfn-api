@@ -19,12 +19,9 @@ public class ReferenceEntity implements Serializable {
     @Column(name = "name")
     public String name;
 
-    @ManyToMany
-    @JoinTable(
-            name = "linkedField",
-            joinColumns = @JoinColumn(name = "referenceUuid"),
-            inverseJoinColumns = @JoinColumn(name = "fieldUuid"))
-    public Set<FieldsEntity> fields;
+    @OneToMany(fetch = FetchType.EAGER, cascade = {CascadeType.REMOVE, CascadeType.PERSIST, CascadeType.DETACH, CascadeType.MERGE})
+    @JoinColumn(name = "referenceUuid", referencedColumnName = "uuid")
+    public Set<LinkedFieldsEntity> fields;
 
     @Column(name = "example")
     public String example;
@@ -41,7 +38,7 @@ public class ReferenceEntity implements Serializable {
         this.example = example;
     }
 
-    public void setFields(Set<FieldsEntity> fields) {
+    public void setFields(Set<LinkedFieldsEntity> fields) {
         this.fields = fields;
     }
 
@@ -57,7 +54,7 @@ public class ReferenceEntity implements Serializable {
         return example;
     }
 
-    public Set<FieldsEntity> getFields() {
+    public Set<LinkedFieldsEntity> getFields() {
         return fields;
     }
 }
