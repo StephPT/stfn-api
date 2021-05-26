@@ -19,7 +19,7 @@ public class ReferenceEntity implements Serializable {
     @Column(name = "name")
     public String name;
 
-    @OneToMany(fetch = FetchType.EAGER, cascade = {CascadeType.REMOVE, CascadeType.PERSIST, CascadeType.DETACH, CascadeType.MERGE})
+    @OneToMany(fetch = FetchType.EAGER, cascade = {CascadeType.REMOVE, CascadeType.PERSIST, CascadeType.DETACH, CascadeType.MERGE}, orphanRemoval = true)
     @JoinColumn(name = "referenceUuid", referencedColumnName = "uuid")
     public Set<LinkedFieldsEntity> fields;
 
