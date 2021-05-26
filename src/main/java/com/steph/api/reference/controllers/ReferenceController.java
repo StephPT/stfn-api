@@ -1,13 +1,13 @@
 package com.steph.api.reference.controllers;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.steph.api.controller.BasicRestController;
 import com.steph.api.reference.data.ReferenceRepository;
 import com.steph.api.reference.entity.ReferenceEntity;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
+import java.sql.Ref;
 import java.util.Map;
 import java.util.UUID;
 import java.util.stream.Collectors;
@@ -31,8 +31,18 @@ public class ReferenceController implements BasicRestController<ReferenceEntity>
         if(entity.uuid == null || entity.uuid.isEmpty()) {
             String uuid = UUID.randomUUID().toString();
             entity.setUuid(uuid);
+            entity.fields.forEach(f -> {
+                f.setReferenceUuid(uuid);
+            });
         }
         return referenceRepository.saveAndFlush(entity);
+    }
+
+    @RequestMapping(value = "/request/reference/update", method = RequestMethod.PUT)
+    public ReferenceEntity update(@RequestBody final ReferenceEntity reference) {
+        ReferenceEntity currentReference = referenceRepository.getOne(reference.getUuid());
+        BeanUtils.copyProperties(reference, currentReference, "uuid", "");
+        return referenceRepository.saveAndFlush(currentReference);
     }
 
     @Override
