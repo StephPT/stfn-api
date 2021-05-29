@@ -25,6 +25,8 @@ public class FieldsEntity implements Serializable {
 
     private String suffix;
 
+    private String dateFormat;
+
     private Boolean italic;
 
     public Boolean required;
@@ -61,6 +63,10 @@ public class FieldsEntity implements Serializable {
         this.suffix = suffix;
     }
 
+    public void setDateFormat(String dateFormat) {
+        this.dateFormat = dateFormat;
+    }
+
     public String getUuid() {
         return uuid;
     }
@@ -91,5 +97,9 @@ public class FieldsEntity implements Serializable {
 
     public String getSuffix() {
         return suffix;
+    }
+
+    public String getDateFormat() {
+        return dateFormat;
     }
 }
