@@ -1,7 +1,7 @@
 CREATE TABLE `linkedField` (
                                `id` int NOT NULL AUTO_INCREMENT,
-                               `referenceUuid` varchar(255) DEFAULT NULL,
-                               `fieldUuid` varchar(255) NOT NULL,
+                               `referenceUuid` varchar(255),
+                               `fieldUuid` varchar(255),
                                `position` int NOT NULL,
                                PRIMARY KEY (`id`),
                                UNIQUE KEY `linkedField_id_uindex` (`id`),
