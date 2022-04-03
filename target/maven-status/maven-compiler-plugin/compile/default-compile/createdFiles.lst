@@ -1,0 +1,16 @@
+META-INF/spring-configuration-metadata.json
+com/steph/api/config/jda/CommandConfiguration.class
+com/steph/api/endpoints/reference/controllers/FieldsController.class
+com/steph/api/controller/BasicRestController.class
+com/steph/api/endpoints/reference/data/ReferenceRepository.class
+com/steph/api/endpoints/reference/data/FieldsRepository.class
+com/steph/api/config/database/HibernateConfiguration.class
+com/steph/api/config/jda/Types.class
+com/steph/api/endpoints/reference/controllers/ReferenceController.class
+com/steph/api/Application.class
+com/steph/api/config/jda/Fun.class
+com/steph/api/endpoints/reference/entity/LinkedFieldsEntity.class
+com/steph/api/config/database/NamingScheme.class
+com/steph/api/endpoints/reference/entity/ReferenceEntity.class
+com/steph/api/config/jda/DiscordJDAConfiguration.class
+com/steph/api/endpoints/reference/entity/FieldsEntity.class

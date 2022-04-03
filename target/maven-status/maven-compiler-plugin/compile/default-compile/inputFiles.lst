@@ -1,0 +1,15 @@
+/Users/stephentomkins/Documents/git/stfn-api/src/main/java/com/steph/api/config/jda/Fun.java
+/Users/stephentomkins/Documents/git/stfn-api/src/main/java/com/steph/api/endpoints/reference/data/FieldsRepository.java
+/Users/stephentomkins/Documents/git/stfn-api/src/main/java/com/steph/api/endpoints/reference/data/ReferenceRepository.java
+/Users/stephentomkins/Documents/git/stfn-api/src/main/java/com/steph/api/endpoints/reference/entity/FieldsEntity.java
+/Users/stephentomkins/Documents/git/stfn-api/src/main/java/com/steph/api/config/database/NamingScheme.java
+/Users/stephentomkins/Documents/git/stfn-api/src/main/java/com/steph/api/endpoints/reference/controllers/FieldsController.java
+/Users/stephentomkins/Documents/git/stfn-api/src/main/java/com/steph/api/Application.java
+/Users/stephentomkins/Documents/git/stfn-api/src/main/java/com/steph/api/config/jda/Types.java
+/Users/stephentomkins/Documents/git/stfn-api/src/main/java/com/steph/api/config/jda/CommandConfiguration.java
+/Users/stephentomkins/Documents/git/stfn-api/src/main/java/com/steph/api/controller/BasicRestController.java
+/Users/stephentomkins/Documents/git/stfn-api/src/main/java/com/steph/api/endpoints/reference/controllers/ReferenceController.java
+/Users/stephentomkins/Documents/git/stfn-api/src/main/java/com/steph/api/config/jda/DiscordJDAConfiguration.java
+/Users/stephentomkins/Documents/git/stfn-api/src/main/java/com/steph/api/endpoints/reference/entity/LinkedFieldsEntity.java
+/Users/stephentomkins/Documents/git/stfn-api/src/main/java/com/steph/api/endpoints/reference/entity/ReferenceEntity.java
+/Users/stephentomkins/Documents/git/stfn-api/src/main/java/com/steph/api/config/database/HibernateConfiguration.java

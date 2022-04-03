@@ -1,0 +1,27 @@
+{
+  "groups": [
+    {
+      "name": "command",
+      "type": "com.steph.api.config.jda.CommandConfiguration",
+      "sourceType": "com.steph.api.config.jda.CommandConfiguration"
+    }
+  ],
+  "properties": [
+    {
+      "name": "command.admin",
+      "type": "java.util.HashMap<java.lang.String,java.lang.Integer>",
+      "sourceType": "com.steph.api.config.jda.CommandConfiguration"
+    },
+    {
+      "name": "command.fun",
+      "type": "java.util.HashMap<java.lang.String,java.lang.Integer>",
+      "sourceType": "com.steph.api.config.jda.CommandConfiguration"
+    },
+    {
+      "name": "command.other",
+      "type": "java.util.HashMap<java.lang.String,java.lang.Integer>",
+      "sourceType": "com.steph.api.config.jda.CommandConfiguration"
+    }
+  ],
+  "hints": []
+}
