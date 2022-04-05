@@ -14,6 +14,8 @@ public class DiscordProperties {
 
     private OnlineStatus status;
 
+    private boolean enabled;
+
     public void setActivity(String activity) {
         this.activity = activity;
     }
@@ -36,5 +38,13 @@ public class DiscordProperties {
 
     public String getToken() {
         return token;
+    }
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
+    }
+
+    public boolean isEnabled() {
+        return enabled;
     }
 }

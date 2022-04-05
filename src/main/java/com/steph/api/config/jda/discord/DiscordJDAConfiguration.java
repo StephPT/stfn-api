@@ -19,7 +19,6 @@ import javax.security.auth.login.LoginException;
 import java.util.List;
 
 @Configuration
-@ConditionalOnProperty(prefix = "discord.jda", name = "enabled", havingValue = "true")
 @ConditionalOnBean(ListenersConfiguration.class)
 @AutoConfigureAfter(ListenersConfiguration.class)
 public class DiscordJDAConfiguration {
@@ -33,11 +32,15 @@ public class DiscordJDAConfiguration {
 
     @Bean
     public JDA jda() throws LoginException {
-        return JDABuilder.create(properties.getToken(), GatewayIntent.GUILD_MEMBERS, GatewayIntent.GUILD_MESSAGES, GatewayIntent.GUILD_PRESENCES)
-                .addEventListeners(adapters.toArray())
-                .setStatus(properties.getStatus())
-                .setActivity(Activity.competing(properties.getActivity()))
-                .build();
+        JDA result = null;
+        if(properties.isEnabled()) {
+            result = JDABuilder.create(properties.getToken(), GatewayIntent.GUILD_MEMBERS, GatewayIntent.GUILD_MESSAGES, GatewayIntent.GUILD_PRESENCES)
+                        .addEventListeners(adapters.toArray())
+                        .setStatus(properties.getStatus())
+                        .setActivity(Activity.competing(properties.getActivity()))
+                        .build();
+        }
+        return result;
     }
 
 }

@@ -24,7 +24,7 @@ public class CommandAnnotationHandler {
     @Autowired
     private CommandConfiguration commandConfiguration;
 
-    @Autowired
+    @Autowired(required = false)
     private JDA jda;
 
     @Bean
