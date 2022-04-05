@@ -7,6 +7,7 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 import java.util.stream.Collectors;
@@ -48,6 +49,11 @@ public class FieldsController implements BasicRestController<FieldsEntity> {
     }
 
     @Override
+    @RequestMapping(value = "/usw/reference/all", method = RequestMethod.GET)
+    public List<FieldsEntity> getAll() {
+        return fieldsRepository.findAll();
+    }
+
     @RequestMapping(value = "/usw/reference/fields", method = RequestMethod.GET)
     public Map<String, String> getOptions() {
         return fieldsRepository.findAll().stream().collect(Collectors.toMap(FieldsEntity::getUuid, FieldsEntity::getLabel));

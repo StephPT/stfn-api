@@ -3,6 +3,7 @@ package com.steph.api.endpoints.controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 
+import java.util.List;
 import java.util.Map;
 
 public interface BasicRestController<T> {
@@ -14,6 +15,5 @@ public interface BasicRestController<T> {
 
     void delete(@RequestBody final T entity);
 
-    Map<String, String> getOptions();
-
+    List<T> getAll();
 }

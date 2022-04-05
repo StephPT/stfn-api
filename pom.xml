@@ -60,6 +60,11 @@
             <artifactId>JDA</artifactId>
             <version>4.3.0_277</version>
         </dependency>
+        <dependency>
+            <groupId>org.reflections</groupId>
+            <artifactId>reflections</artifactId>
+            <version>0.10.2</version>
+        </dependency>
     </dependencies>
 
 

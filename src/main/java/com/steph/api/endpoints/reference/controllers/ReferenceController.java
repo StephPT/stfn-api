@@ -6,6 +6,7 @@ import com.steph.api.endpoints.reference.entity.ReferenceEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 import java.util.stream.Collectors;
@@ -49,6 +50,11 @@ public class ReferenceController implements BasicRestController<ReferenceEntity>
     }
 
     @Override
+    @RequestMapping(value = "/usw/refernece/refernece/all", method = RequestMethod.GET)
+    public List<ReferenceEntity> getAll() {
+        return referenceRepository.findAll();
+    }
+
     @RequestMapping(value = "/usw/reference/reference", method = RequestMethod.GET)
     public Map<String, String> getOptions() {
         return referenceRepository.findAll().stream().collect(Collectors.toMap(ReferenceEntity::getUuid, ReferenceEntity::getName));
