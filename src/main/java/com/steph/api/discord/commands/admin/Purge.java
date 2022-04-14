@@ -1,6 +1,7 @@
-package com.steph.api.discord.commands;
+package com.steph.api.discord.commands.admin;
 
 import com.steph.api.config.jda.command.Command;
+import com.steph.api.discord.commands.AbstractCommandRepository;
 import net.dv8tion.jda.api.entities.Message;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 
