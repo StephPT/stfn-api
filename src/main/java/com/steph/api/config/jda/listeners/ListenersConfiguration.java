@@ -2,25 +2,20 @@ package com.steph.api.config.jda.listeners;
 
 import com.steph.api.config.jda.discord.DiscordJDAConfiguration;
 import com.steph.api.discord.data.ServerInformation;
-import com.steph.api.endpoints.discord.command.CommandService;
-import com.steph.api.endpoints.discord.command.CommandUtil;
+import com.steph.api.services.discord.command.CommandService;
+import com.steph.api.services.discord.command.CommandUtil;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.events.ReadyEvent;
 import net.dv8tion.jda.api.events.ShutdownEvent;
 import net.dv8tion.jda.api.events.guild.GuildJoinEvent;
-import net.dv8tion.jda.api.events.interaction.SlashCommandEvent;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.AutoConfigureAfter;
 import org.springframework.boot.autoconfigure.AutoConfigureBefore;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.DependsOn;
-import org.springframework.core.annotation.Order;
 
 import java.util.ArrayList;
 import java.util.List;
